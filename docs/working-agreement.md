@@ -24,8 +24,3 @@
 - Short check-in: <!-- when and where? -->
 - Ask for help early.
 
-## LLM usage
-
-- LLMs are allowed for small parts and ideas, not for solving entire parts.
-- Everyone must understand the code they commit.
-- Mark LLM generated code with a comment.
