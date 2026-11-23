@@ -18,37 +18,54 @@
 - `dockerfiles/` and `docker-compose.yaml`: run everything with Docker.
 - `docs/`: working agreement and architecture notes.
 
-## Getting started
+## Setup
 
 ```bash
-# 1. Copy the environment template and fill in your own keys
-cp .env.example .env
+git clone https://github.com/Zm-ah/Cvoice_Ai_ops_lab_group6.git
+cd Cvoice_Ai_ops_lab_group6
 
-# 2. Start backend and frontend together
-docker compose up --build
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+
+pip install -e "backend[dev]" -e "frontend[dev]"
+cp .env.example .env             # then fill in your own keys
 ```
 
-- Backend: http://localhost:8000 (docs at `/docs`)
-- Frontend: http://localhost:8501
+## Run
 
-## Local development (without Docker)
+**Locally** (two terminals, with the virtual environment activated):
 
 ```bash
-# Backend
-cd backend
-pip install -e ".[dev]"
+# Terminal 1: backend
 uvicorn cvoice_backend.api:app --reload
 
-# Frontend (in a second terminal)
+# Terminal 2: frontend
 cd frontend
-pip install -e ".[dev]"
 streamlit run src/cvoice_frontend/app.py
 ```
 
-## Team
+**With Docker** (starts both):
 
-<!-- TODO: add names and GitHub handles -->
+```bash
+docker compose up --build
+```
+
+- Backend: http://localhost:8000 (API docs at `/docs`)
+- Frontend: http://localhost:8501
+
+## Adding a package
+
+1. Add it to `dependencies` in `backend/pyproject.toml` or `frontend/pyproject.toml`.
+2. Everyone runs the `pip install -e ...` line from the Setup section again.
+
+## Working agreement
+
+See [docs/working-agreement.md](docs/working-agreement.md).
 
 ## LLM usage
 
 Parts of the code that are LLM generated are marked with a comment.
+
+## Team
+
+<!-- TODO: add names and GitHub handles --> 
