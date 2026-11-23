@@ -3,26 +3,26 @@ flowchart TB
 
     subgraph gh["GitHub"]
         direction LR
-        kanban["Kanban<br/>issues #1 till #14"]
+        kanban["Kanban<br/>steg 01 till 17"]
         repo["Repo<br/>main + feature-branches"]
-        ci["Actions: CI #11<br/>ruff + pytest + evals"]
-        cd["Actions: CD #12<br/>bygg och driftsätt"]
+        ci["Actions: CI, steg 05<br/>ruff + pytest + evals"]
+        cd["Actions: CD, steg 15<br/>bygg och driftsätt"]
         kanban -.-> repo
         repo --> ci --> cd
     end
 
-    acr[("Azure Container Registry #12")]
+    acr[("Azure Container Registry<br/>steg 13")]
 
-    subgraph runtime["Docker #13: lokalt med docker-compose, i molnet på Azure #12"]
+    subgraph runtime["Docker, steg 06: lokalt med docker-compose, i molnet på Azure, steg 13"]
         subgraph fe["frontend/ : cvoice_frontend, Streamlit :8501"]
             direction TB
             app["app.py<br/>st.navigation"]
             subgraph views["views/"]
-                v_upload["upload.py<br/>#3"]
-                v_profile["profile.py<br/>#4 nyckeltal, jobbmeny, sammanfattning"]
-                v_chat["chat.py<br/>#5"]
-                v_voice["voice.py<br/>#6"]
-                v_match["job_match.py<br/>#8"]
+                v_upload["upload.py<br/>steg 08"]
+                v_profile["profile.py, steg 09<br/>nyckeltal, jobbmeny, sammanfattning"]
+                v_chat["chat.py<br/>steg 11"]
+                v_voice["voice.py<br/>steg 10"]
+                v_match["job_match.py<br/>steg 12"]
             end
             comps["components.py<br/>kpi_cards, chat_window"]
             client["api_client.py + constants.py<br/>alla HTTP-anrop, API_URL"]
@@ -34,15 +34,15 @@ flowchart TB
         subgraph be["backend/ : cvoice_backend, FastAPI :8000"]
             direction TB
             api["api.py<br/>alla endpoints + Logfire-setup"]
-            ingest["ingestion.py<br/>#3 PDF till text, delar i bitar"]
+            ingest["ingestion.py, steg 08<br/>PDF till text, delar i bitar"]
             subgraph agents["agents/"]
-                a_prof["profile_agent.py<br/>#4 output: Profile"]
-                a_pers["persona_agent.py<br/>#5 verktyg: search_my_documents"]
-                a_match["match_agent.py<br/>#8 output: MatchResult"]
+                a_prof["profile_agent.py, steg 09<br/>output: Profile"]
+                a_pers["persona_agent.py, steg 11<br/>verktyg: search_my_documents"]
+                a_match["match_agent.py, steg 12<br/>output: MatchResult"]
             end
-            voicef["voice.py<br/>#6 tal till text, text till tal"]
-            vstore["vector_store.py<br/>#3 lägg till, #5 sök"]
-            shared["model.py, prompts.py #9<br/>data_models.py, constants.py"]
+            voicef["voice.py, steg 10<br/>tal till text, text till tal"]
+            vstore["vector_store.py<br/>lägg till: steg 08, sök: steg 11"]
+            shared["model.py, data_models.py, constants.py: steg 03<br/>prompts.py: steg 07"]
             lancedb[("knowledge_base/<br/>LanceDB")]
 
             api --> ingest
@@ -58,7 +58,7 @@ flowchart TB
         end
     end
 
-    subgraph evalsbox["backend/evals/ #10"]
+    subgraph evalsbox["backend/evals/, steg 14"]
         datasets["datasets/<br/>persona + injection"]
         run_evals["run_evals.py<br/>Pydantic Evals + LLMJudge"]
         datasets --> run_evals
@@ -67,16 +67,15 @@ flowchart TB
     subgraph ext["Externa tjänster"]
         nvidia["Nvidia Build<br/>språkmodell"]
         embapi["Embedding-API<br/>Cohere multilingual"]
-        speech["Tal-API #6<br/>väljs senare"]
-        logfire["Logfire #9<br/>traces, promptversioner, evals"]
+        speech["Tal-API, steg 10<br/>väljs senare"]
+        logfire["Logfire, steg 07<br/>traces, promptversioner, evals"]
     end
 
-    subgraph legend["Ansvar"]
+    subgraph legend["Förklaring"]
         direction LR
-        L1["Zakaria"]
-        L2["Person B"]
-        L3["Person C"]
-        L4["Person D"]
+        L1["Grund"]
+        L2["Funktion"]
+        L3["Bonus för VG"]
     end
 
     user --> app
@@ -93,12 +92,10 @@ flowchart TB
     cd --> acr
     acr --> runtime
 
-    classDef zak fill:#f5b7b1,stroke:#c0392b,color:#000
-    classDef pb fill:#aed6f1,stroke:#2471a3,color:#000
-    classDef pc fill:#abebc6,stroke:#1e8449,color:#000
-    classDef pd fill:#f9e79f,stroke:#b9770e,color:#000
+    classDef grund fill:#aed6f1,stroke:#2471a3,color:#000
+    classDef funktion fill:#abebc6,stroke:#1e8449,color:#000
+    classDef bonus fill:#f9e79f,stroke:#b9770e,color:#000
 
-    class L1,a_pers,v_chat,shared,logfire,run_evals,datasets zak
-    class L2,v_upload,ingest,vstore,lancedb,ci pb
-    class L3,a_prof,v_profile,comps,a_match,v_match pc
-    class L4,voicef,v_voice,speech,cd,acr pd
+    class L1,shared,ci,api,client,app grund
+    class L2,v_upload,v_profile,v_chat,v_voice,v_match,comps,ingest,a_prof,a_pers,a_match,voicef,vstore,lancedb,speech funktion
+    class L3,logfire,datasets,run_evals,cd,acr bonus

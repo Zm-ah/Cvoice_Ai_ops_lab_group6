@@ -9,7 +9,7 @@
 
 ## Diagram
 
-The numbers (#3, #4 ...) are the issues on the kanban board. The colours show who owns which part.
+"steg 01" to "steg 17" are the steps on the kanban board, in the order we build them. The colours show the foundation (blue), the features (green) and the bonus parts for VG (yellow).
 
 ![Architecture diagram](architecture.png)
 
