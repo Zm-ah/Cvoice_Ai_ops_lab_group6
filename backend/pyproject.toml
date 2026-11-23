@@ -13,12 +13,16 @@ dependencies = [
     "pydantic",
     "python-dotenv",
     "python-multipart",
-    # TODO: add as the team needs them, for example:
-    # "pydantic-ai", "lancedb", "logfire"
+    "pydantic-ai",
+    "lancedb==0.17.0",
+    "logfire",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "httpx"]
+dev = ["pytest", "httpx","ipykernel"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/cvoice_backend"]
+
+
+
