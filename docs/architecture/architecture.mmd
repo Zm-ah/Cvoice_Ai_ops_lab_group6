@@ -1,0 +1,104 @@
+flowchart TB
+    user(["Användare<br/>laddar upp CV, chattar, pratar"])
+
+    subgraph gh["GitHub"]
+        direction LR
+        kanban["Kanban<br/>issues #1 till #14"]
+        repo["Repo<br/>main + feature-branches"]
+        ci["Actions: CI #11<br/>ruff + pytest + evals"]
+        cd["Actions: CD #12<br/>bygg och driftsätt"]
+        kanban -.-> repo
+        repo --> ci --> cd
+    end
+
+    acr[("Azure Container Registry #12")]
+
+    subgraph runtime["Docker #13: lokalt med docker-compose, i molnet på Azure #12"]
+        subgraph fe["frontend/ : cvoice_frontend, Streamlit :8501"]
+            direction TB
+            app["app.py<br/>st.navigation"]
+            subgraph views["views/"]
+                v_upload["upload.py<br/>#3"]
+                v_profile["profile.py<br/>#4 nyckeltal, jobbmeny, sammanfattning"]
+                v_chat["chat.py<br/>#5"]
+                v_voice["voice.py<br/>#6"]
+                v_match["job_match.py<br/>#8"]
+            end
+            comps["components.py<br/>kpi_cards, chat_window"]
+            client["api_client.py + constants.py<br/>alla HTTP-anrop, API_URL"]
+            app --> views
+            views --> comps
+            views --> client
+        end
+
+        subgraph be["backend/ : cvoice_backend, FastAPI :8000"]
+            direction TB
+            api["api.py<br/>alla endpoints + Logfire-setup"]
+            ingest["ingestion.py<br/>#3 PDF till text, delar i bitar"]
+            subgraph agents["agents/"]
+                a_prof["profile_agent.py<br/>#4 output: Profile"]
+                a_pers["persona_agent.py<br/>#5 verktyg: search_my_documents"]
+                a_match["match_agent.py<br/>#8 output: MatchResult"]
+            end
+            voicef["voice.py<br/>#6 tal till text, text till tal"]
+            vstore["vector_store.py<br/>#3 lägg till, #5 sök"]
+            shared["model.py, prompts.py #9<br/>data_models.py, constants.py"]
+            lancedb[("knowledge_base/<br/>LanceDB")]
+
+            api --> ingest
+            ingest --> a_prof
+            ingest --> vstore
+            api --> a_pers
+            a_pers -->|"söker bara i rätt profil"| vstore
+            api --> a_match
+            a_match --> vstore
+            api --> voicef
+            vstore --> lancedb
+            agents -.-> shared
+        end
+    end
+
+    subgraph evalsbox["backend/evals/ #10"]
+        datasets["datasets/<br/>persona + injection"]
+        run_evals["run_evals.py<br/>Pydantic Evals + LLMJudge"]
+        datasets --> run_evals
+    end
+
+    subgraph ext["Externa tjänster"]
+        nvidia["Nvidia Build<br/>språkmodell"]
+        embapi["Embedding-API<br/>Cohere multilingual"]
+        speech["Tal-API #6<br/>väljs senare"]
+        logfire["Logfire #9<br/>traces, promptversioner, evals"]
+    end
+
+    subgraph legend["Ansvar"]
+        direction LR
+        L1["Zakaria"]
+        L2["Person B"]
+        L3["Person C"]
+        L4["Person D"]
+    end
+
+    user --> app
+    client -->|"HTTP: JSON och filer"| api
+    shared --> nvidia
+    vstore --> embapi
+    voicef --> speech
+    api -.->|"traces"| logfire
+    shared -.->|"hämtar prompter"| logfire
+    run_evals --> a_pers
+    run_evals -->|"LLMJudge"| nvidia
+    run_evals -.->|"resultat"| logfire
+    ci -.-> run_evals
+    cd --> acr
+    acr --> runtime
+
+    classDef zak fill:#f5b7b1,stroke:#c0392b,color:#000
+    classDef pb fill:#aed6f1,stroke:#2471a3,color:#000
+    classDef pc fill:#abebc6,stroke:#1e8449,color:#000
+    classDef pd fill:#f9e79f,stroke:#b9770e,color:#000
+
+    class L1,a_pers,v_chat,shared,logfire,run_evals,datasets zak
+    class L2,v_upload,ingest,vstore,lancedb,ci pb
+    class L3,a_prof,v_profile,comps,a_match,v_match pc
+    class L4,voicef,v_voice,speech,cd,acr pd
