@@ -68,4 +68,7 @@ Parts of the code that are LLM generated are marked with a comment.
 
 ## Team
 
-<!-- TODO: add names and GitHub handles --> 
+- Zakaria
+- Maarcus
+- Nasser
+- Zineb   
