@@ -1,0 +1,24 @@
+# Starts backend and frontend together
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: dockerfiles/backend.Dockerfile
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/knowledge_base:/app/knowledge_base
+
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfiles/frontend.Dockerfile
+    env_file: .env
+    environment:
+      # Inside Docker the frontend reaches the backend by service name
+      API_URL: http://backend:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
