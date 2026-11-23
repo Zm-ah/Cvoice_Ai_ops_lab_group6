@@ -62,9 +62,6 @@ docker compose up --build
 
 See [docs/working-agreement.md](docs/working-agreement.md).
 
-## LLM usage
-
-Parts of the code that are LLM generated are marked with a comment.
 
 ## Team
 
