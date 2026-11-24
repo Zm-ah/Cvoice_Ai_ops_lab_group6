@@ -20,28 +20,29 @@
 
 ## Setup
 
+Install [uv](https://docs.astral.sh/uv/) first. Then:
+
 ```bash
 git clone https://github.com/Zm-ah/Cvoice_Ai_ops_lab_group6.git
 cd Cvoice_Ai_ops_lab_group6
 
-python3 -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-
-pip install -e "backend[dev]" -e "frontend[dev]"
+uv sync --all-packages
 cp .env.example .env             # then fill in your own keys
 ```
 
+`uv sync --all-packages` creates one `.venv` in the root and installs both `backend` and `frontend`. Run it again after every `git pull`.
+
 ## Run
 
-**Locally** (two terminals, with the virtual environment activated):
+**Locally** (two terminals):
 
 ```bash
 # Terminal 1: backend
-uvicorn cvoice_backend.api:app --reload
+uv run uvicorn cvoice_backend.api:app --reload
 
 # Terminal 2: frontend
 cd frontend
-streamlit run src/cvoice_frontend/app.py
+uv run streamlit run src/cvoice_frontend/app.py
 ```
 
 **With Docker** (starts both):
@@ -55,8 +56,11 @@ docker compose up --build
 
 ## Adding a package
 
-1. Add it to `dependencies` in `backend/pyproject.toml` or `frontend/pyproject.toml`.
-2. Everyone runs the `pip install -e ...` line from the Setup section again.
+```bash
+uv add --package cvoice-backend <package>    # or cvoice-frontend
+```
+
+Commit both the `pyproject.toml` and `uv.lock`. Everyone else runs `uv sync --all-packages` after pulling.
 
 ## Working agreement
 
