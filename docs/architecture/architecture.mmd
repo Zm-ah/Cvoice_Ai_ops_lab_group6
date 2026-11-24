@@ -13,7 +13,13 @@ flowchart TB
 
     acr[("Azure Container Registry<br/>sparar images")]
 
-    subgraph runtime["Docker: lokalt med docker-compose.yaml, i molnet på Azure"]
+    subgraph dockerfiles_box["Docker-filer"]
+        direction LR
+        dockerfiles["dockerfiles/<br/>backend.Dockerfile + frontend.Dockerfile"]
+        compose["docker-compose.yaml<br/>startar båda containrarna lokalt"]
+    end
+
+    subgraph runtime["DOCKER: två containrar, lokalt och på Azure"]
         subgraph fe["frontend-container: cvoice_frontend, Streamlit :8501"]
             direction TB
             app["app.py<br/>st.navigation"]
@@ -82,5 +88,11 @@ flowchart TB
     run_evals -->|"LLMJudge"| nvidia
     run_evals -.->|"resultat"| logfire
     ci -.-> run_evals
+    dockerfiles -->|"bygger"| fe
+    dockerfiles -->|"bygger"| be
+    compose -->|"startar"| runtime
+    cd -.->|"använder"| dockerfiles
     cd -->|"pushar images"| acr
     acr -->|"startar containrar"| runtime
+
+    style runtime stroke:#ffffff,stroke-width:3px,stroke-dasharray:8 4
