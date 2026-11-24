@@ -18,4 +18,12 @@ dev = [
     "ipykernel>=7.4.0",
     "pytest>=9.2.0",
     "ruff>=0.17.6",
+    "pre-commit"
 ]
+
+[tool.ruff]
+line-length = 100
+src = ["backend/src", "frontend/src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
