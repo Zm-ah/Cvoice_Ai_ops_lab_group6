@@ -1,0 +1,175 @@
+{
+  "profile": "jonas_petren",
+  "as_of": "2026-11",
+  "name": "Jonas Petrén",
+  "headline": "Analytics Engineer",
+  "location": "Stockholm, Sweden",
+  "kpis": {
+    "years_of_experience_all_positions": 12.2,
+    "months_of_experience_all_positions": 146,
+    "years_of_experience_full_time_only": 11.8,
+    "months_of_experience_full_time_only": 141,
+    "number_of_jobs": 5,
+    "number_of_full_time_jobs": 4,
+    "number_of_skills": 14,
+    "latest_education": "Higher Vocational Education Diploma, Data Engineer"
+  },
+  "current_job": {
+    "title": "Analytics Engineer",
+    "company": "Verdant Mobility AB"
+  },
+  "first_job": {
+    "title": "Accounting Assistant",
+    "company": "Hedberg & Partners Revision",
+    "start": "2012-08"
+  },
+  "jobs": [
+    {
+      "title": "Analytics Engineer",
+      "company": "Verdant Mobility AB",
+      "location": "Stockholm",
+      "start": "2023-10",
+      "end": null,
+      "type": "full-time",
+      "months": 38
+    },
+    {
+      "title": "Data Analyst",
+      "company": "Mälarbanken",
+      "location": "Västerås",
+      "start": "2021-08",
+      "end": "2023-09",
+      "type": "full-time",
+      "months": 26
+    },
+    {
+      "title": "Data Analyst Intern",
+      "company": "Tellgren Analytics",
+      "location": "Stockholm",
+      "start": "2021-01",
+      "end": "2021-05",
+      "type": "internship",
+      "months": 5
+    },
+    {
+      "title": "Financial Controller",
+      "company": "Ostrava Foods Nordic AB",
+      "location": "Stockholm",
+      "start": "2015-01",
+      "end": "2018-12",
+      "type": "full-time",
+      "months": 48
+    },
+    {
+      "title": "Accounting Assistant",
+      "company": "Hedberg & Partners Revision",
+      "location": "Stockholm",
+      "start": "2012-08",
+      "end": "2014-12",
+      "type": "full-time",
+      "months": 29
+    }
+  ],
+  "gaps": [
+    {
+      "start": "2019-01",
+      "end": "2019-07",
+      "reason": "Career break: self-studied Python and SQL and travelled before starting the data engineering programme."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Higher Vocational Education Diploma, Data Engineer",
+      "school": "Stockholm Vocational Tech Academy",
+      "start": "2019-08",
+      "end": "2021-06"
+    },
+    {
+      "degree": "BSc in Business Administration (Accounting)",
+      "school": "Södertälje School of Economics",
+      "start": "2009-08",
+      "end": "2012-06"
+    }
+  ],
+  "skills": {
+    "Languages": [
+      "SQL",
+      "Python"
+    ],
+    "Data platforms": [
+      "BigQuery",
+      "PostgreSQL",
+      "SQL Server"
+    ],
+    "Tools": [
+      "dbt",
+      "Looker",
+      "Power BI",
+      "Streamlit",
+      "Git"
+    ],
+    "Domain": [
+      "Financial reporting",
+      "Reconciliation",
+      "KPI definitions",
+      "Banking analytics"
+    ]
+  },
+  "certifications": [
+    "dbt Analytics Engineering Certification (2024)"
+  ],
+  "languages": [
+    "Swedish (native)",
+    "English (fluent)",
+    "Czech (conversational)"
+  ],
+  "cover_letter": {
+    "company": "Lumen Insurance",
+    "role": "Senior Analytics Engineer"
+  },
+  "eval_questions": [
+    {
+      "question": "What do you work with today?",
+      "expected_contains": [
+        "Analytics Engineer",
+        "Verdant Mobility AB"
+      ]
+    },
+    {
+      "question": "Where did you start your career?",
+      "expected_contains": [
+        "Accounting Assistant",
+        "Hedberg & Partners Revision"
+      ]
+    },
+    {
+      "question": "How many years of experience do you have?",
+      "expected_any": [
+        "11",
+        "12"
+      ]
+    },
+    {
+      "question": "What is your most recent education?",
+      "expected_contains": [
+        "Higher Vocational Education Diploma, Data Engineer",
+        "Stockholm Vocational Tech Academy"
+      ]
+    },
+    {
+      "question": "Which job are you applying for in your cover letter?",
+      "expected_contains": [
+        "Senior Analytics Engineer",
+        "Lumen Insurance"
+      ]
+    },
+    {
+      "question": "Which languages do you speak?",
+      "expected_contains": [
+        "Swedish",
+        "English",
+        "Czech"
+      ]
+    }
+  ]
+}
