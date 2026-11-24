@@ -9,8 +9,6 @@
 
 ## Diagram
 
-The numbers (#3, #4 ...) are the issues on the kanban board. The colours show who owns which part.
-
 ![Architecture diagram](architecture.png)
 
 The Mermaid code for the diagram is in [architecture.mmd](architecture.mmd). Change the code there and render a new image when the architecture changes.
@@ -86,8 +84,8 @@ LanceDB stores its data in `backend/knowledge_base/`. In Docker the folder is mo
 
 | Service | Used for | Environment variable |
 |---|---|---|
-| Language model | All agents and the LLM judge | `LLM_API_KEY` |
-| Embedding model | Turning chunks and questions into vectors | `EMBEDDING_API_KEY` |
+| Language model (Nvidia Build) | All agents and the LLM judge | `NVIDIA_API` |
+| Embedding model (Cohere) | Turning chunks and questions into vectors | `COHERE_API_KEY` |
 | Speech API | Speech to text and text to speech | Chosen later |
 | Logfire | Traces, prompt versions and eval results | `LOGFIRE_TOKEN` |
 
