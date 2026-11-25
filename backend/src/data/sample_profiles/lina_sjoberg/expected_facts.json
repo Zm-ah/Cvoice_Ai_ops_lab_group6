@@ -1,0 +1,154 @@
+{
+  "profile": "lina_sjoberg",
+  "as_of": "2026-11",
+  "name": "Lina Sjöberg",
+  "headline": "Machine Learning Engineer",
+  "location": "Umeå, Sweden",
+  "kpis": {
+    "years_of_experience_all_positions": 5.2,
+    "months_of_experience_all_positions": 62,
+    "years_of_experience_full_time_only": 3.2,
+    "months_of_experience_full_time_only": 38,
+    "number_of_jobs": 4,
+    "number_of_full_time_jobs": 2,
+    "number_of_skills": 14,
+    "latest_education": "BSc in Computer Science"
+  },
+  "current_job": {
+    "title": "Machine Learning Engineer",
+    "company": "Fjordline AI"
+  },
+  "first_job": {
+    "title": "IT Support Technician (part-time)",
+    "company": "University of Norrland Campus IT",
+    "start": "2021-09"
+  },
+  "jobs": [
+    {
+      "title": "Machine Learning Engineer",
+      "company": "Fjordline AI",
+      "location": "Umeå",
+      "start": "2025-03",
+      "end": null,
+      "type": "full-time",
+      "months": 21
+    },
+    {
+      "title": "Junior Python Developer",
+      "company": "Klarsyn Media",
+      "location": "Umeå",
+      "start": "2023-10",
+      "end": "2025-02",
+      "type": "full-time",
+      "months": 17
+    },
+    {
+      "title": "Software Developer Intern",
+      "company": "Pinecrest Software",
+      "location": "Umeå",
+      "start": "2023-06",
+      "end": "2023-08",
+      "type": "internship",
+      "months": 3
+    },
+    {
+      "title": "IT Support Technician (part-time)",
+      "company": "University of Norrland Campus IT",
+      "location": "Umeå",
+      "start": "2021-09",
+      "end": "2023-05",
+      "type": "part-time",
+      "months": 21
+    }
+  ],
+  "gaps": [],
+  "education": [
+    {
+      "degree": "BSc in Computer Science",
+      "school": "University of Norrland",
+      "start": "2020-08",
+      "end": "2023-06"
+    }
+  ],
+  "skills": {
+    "Languages": [
+      "Python",
+      "SQL",
+      "JavaScript (basic)"
+    ],
+    "Machine learning": [
+      "PyTorch",
+      "scikit-learn",
+      "Computer vision",
+      "Model evaluation"
+    ],
+    "Backend": [
+      "FastAPI",
+      "Django",
+      "PostgreSQL",
+      "pytest"
+    ],
+    "Cloud and DevOps": [
+      "Docker",
+      "Azure",
+      "GitHub Actions"
+    ]
+  },
+  "certifications": [
+    "Microsoft Certified: Azure AI Fundamentals (2024)"
+  ],
+  "languages": [
+    "Swedish (native)",
+    "English (fluent)",
+    "Spanish (basic)"
+  ],
+  "cover_letter": {
+    "company": "Polaris Robotics",
+    "role": "Machine Learning Engineer"
+  },
+  "eval_questions": [
+    {
+      "question": "What do you work with today?",
+      "expected_contains": [
+        "Machine Learning Engineer",
+        "Fjordline AI"
+      ]
+    },
+    {
+      "question": "Where did you start your career?",
+      "expected_contains": [
+        "IT Support Technician (part-time)",
+        "University of Norrland Campus IT"
+      ]
+    },
+    {
+      "question": "How many years of experience do you have?",
+      "expected_any": [
+        "3",
+        "5"
+      ]
+    },
+    {
+      "question": "What is your most recent education?",
+      "expected_contains": [
+        "BSc in Computer Science",
+        "University of Norrland"
+      ]
+    },
+    {
+      "question": "Which job are you applying for in your cover letter?",
+      "expected_contains": [
+        "Machine Learning Engineer",
+        "Polaris Robotics"
+      ]
+    },
+    {
+      "question": "Which languages do you speak?",
+      "expected_contains": [
+        "Swedish",
+        "English",
+        "Spanish"
+      ]
+    }
+  ]
+}

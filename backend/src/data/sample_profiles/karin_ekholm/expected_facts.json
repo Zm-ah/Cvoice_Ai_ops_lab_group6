@@ -1,0 +1,187 @@
+{
+  "profile": "karin_ekholm",
+  "as_of": "2026-11",
+  "name": "Karin Ekholm",
+  "headline": "Data Platform Lead",
+  "location": "Gothenburg, Sweden",
+  "kpis": {
+    "years_of_experience_all_positions": 18.2,
+    "months_of_experience_all_positions": 219,
+    "years_of_experience_full_time_only": 18.2,
+    "months_of_experience_full_time_only": 219,
+    "number_of_jobs": 6,
+    "number_of_full_time_jobs": 6,
+    "number_of_skills": 21,
+    "latest_education": "MSc in Computer Science"
+  },
+  "current_job": {
+    "title": "Data Platform Lead",
+    "company": "Arcwise Payments AB"
+  },
+  "first_job": {
+    "title": "Junior BI Developer",
+    "company": "Nordvik Logistik AB",
+    "start": "2008-09"
+  },
+  "jobs": [
+    {
+      "title": "Data Platform Lead",
+      "company": "Arcwise Payments AB",
+      "location": "Gothenburg",
+      "start": "2023-04",
+      "end": null,
+      "type": "full-time",
+      "months": 44
+    },
+    {
+      "title": "Lead Data Engineer",
+      "company": "Solhem Health Tech",
+      "location": "Gothenburg",
+      "start": "2020-11",
+      "end": "2023-03",
+      "type": "full-time",
+      "months": 29
+    },
+    {
+      "title": "Senior Data Engineer",
+      "company": "Kvarnby Energi AB",
+      "location": "Borås",
+      "start": "2018-01",
+      "end": "2020-10",
+      "type": "full-time",
+      "months": 34
+    },
+    {
+      "title": "Data Engineer",
+      "company": "Brightwave Retail Group",
+      "location": "Gothenburg",
+      "start": "2014-09",
+      "end": "2017-12",
+      "type": "full-time",
+      "months": 40
+    },
+    {
+      "title": "ETL Developer",
+      "company": "Fjällstam Försäkring",
+      "location": "Gothenburg",
+      "start": "2011-06",
+      "end": "2014-08",
+      "type": "full-time",
+      "months": 39
+    },
+    {
+      "title": "Junior BI Developer",
+      "company": "Nordvik Logistik AB",
+      "location": "Gothenburg",
+      "start": "2008-09",
+      "end": "2011-05",
+      "type": "full-time",
+      "months": 33
+    }
+  ],
+  "gaps": [],
+  "education": [
+    {
+      "degree": "MSc in Computer Science",
+      "school": "Lindholmen Institute of Technology",
+      "start": "2006-08",
+      "end": "2008-06"
+    },
+    {
+      "degree": "BSc in Information Systems",
+      "school": "University of Västkusten",
+      "start": "2003-08",
+      "end": "2006-06"
+    }
+  ],
+  "skills": {
+    "Languages": [
+      "Python",
+      "SQL",
+      "Scala"
+    ],
+    "Data platforms": [
+      "Snowflake",
+      "Databricks",
+      "SQL Server",
+      "PostgreSQL"
+    ],
+    "Tools": [
+      "dbt",
+      "Apache Airflow",
+      "Apache Spark",
+      "Kafka",
+      "Great Expectations"
+    ],
+    "Cloud and DevOps": [
+      "Azure",
+      "AWS",
+      "Docker",
+      "Terraform",
+      "GitHub Actions"
+    ],
+    "Leadership": [
+      "Team leadership",
+      "Hiring",
+      "Mentoring",
+      "Architecture reviews"
+    ]
+  },
+  "certifications": [
+    "SnowPro Core Certification (2023)",
+    "Microsoft Certified: Azure Data Engineer Associate (2021)"
+  ],
+  "languages": [
+    "Swedish (native)",
+    "English (fluent)",
+    "German (basic)"
+  ],
+  "cover_letter": {
+    "company": "Northgate Bank",
+    "role": "Head of Data Engineering"
+  },
+  "eval_questions": [
+    {
+      "question": "What do you work with today?",
+      "expected_contains": [
+        "Data Platform Lead",
+        "Arcwise Payments AB"
+      ]
+    },
+    {
+      "question": "Where did you start your career?",
+      "expected_contains": [
+        "Junior BI Developer",
+        "Nordvik Logistik AB"
+      ]
+    },
+    {
+      "question": "How many years of experience do you have?",
+      "expected_any": [
+        "18"
+      ]
+    },
+    {
+      "question": "What is your most recent education?",
+      "expected_contains": [
+        "MSc in Computer Science",
+        "Lindholmen Institute of Technology"
+      ]
+    },
+    {
+      "question": "Which job are you applying for in your cover letter?",
+      "expected_contains": [
+        "Head of Data Engineering",
+        "Northgate Bank"
+      ]
+    },
+    {
+      "question": "Which languages do you speak?",
+      "expected_contains": [
+        "Swedish",
+        "English",
+        "German"
+      ]
+    }
+  ]
+}

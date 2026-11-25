@@ -21,7 +21,9 @@ class Profile(BaseModel):
 
 
 class MatchResult(BaseModel):
-    score: int = Field(ge=0, le=100, description="how well the profile matches the job ad, 0 to 100")
+    score: int = Field(
+        ge=0, le=100, description="how well the profile matches the job ad, 0 to 100"
+    )
     matching_skills: list[str] = Field(description="skills in the job ad that the person has")
     missing_skills: list[str] = Field(description="skills in the job ad that the person lacks")
     motivation: str = Field(description="short explanation of the score, at most 3 sentences")

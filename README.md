@@ -27,6 +27,7 @@ git clone https://github.com/Zm-ah/Cvoice_Ai_ops_lab_group6.git
 cd Cvoice_Ai_ops_lab_group6
 
 uv sync --all-packages
+uv run pre-commit install        # runs ruff automatically before each commit
 cp .env.example .env             # then fill in your own keys
 ```
 
