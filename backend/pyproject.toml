@@ -15,7 +15,7 @@ dependencies = [
     "python-multipart",
     "pydantic-ai",
     "lancedb==0.17.0",
-    "logfire",
+    "logfire[fastapi,variables]",
 ]
 
 [project.optional-dependencies]
