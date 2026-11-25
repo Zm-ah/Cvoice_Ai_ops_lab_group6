@@ -2,7 +2,6 @@
 
 import logfire
 from dotenv import load_dotenv
-
 from fastapi import FastAPI
 
 from cvoice_backend.constants import APP_NAME
