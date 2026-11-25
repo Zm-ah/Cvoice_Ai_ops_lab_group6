@@ -27,3 +27,22 @@ class MatchResult(BaseModel):
     matching_skills: list[str] = Field(description="skills in the job ad that the person has")
     missing_skills: list[str] = Field(description="skills in the job ad that the person lacks")
     motivation: str = Field(description="short explanation of the score, at most 3 sentences")
+
+
+class Chunk(BaseModel):
+    """A piece of a document, tagged with the profile it belongs to."""
+
+    chunk_id: str = Field(description="unique id of this chunk")
+    profile_id: str = Field(description="the profile the chunk belongs to")
+    text: str = Field(description="the text of the chunk")
+    source: str = Field(description="file name the chunk was read from")
+    position: int = Field(description="position of the chunk in its document, starting at 0")
+
+
+class UploadResponse(BaseModel):
+    """What the upload endpoint returns once the documents are indexed."""
+
+    profile_id: str = Field(description="id to use when asking about this person")
+    sources: list[str] = Field(description="file names that were read")
+    chunk_count: int = Field(description="number of chunks stored for this profile")
+    characters: int = Field(description="how much text was extracted in total")
