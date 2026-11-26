@@ -14,8 +14,16 @@ dependencies = [
     "python-dotenv",
     "python-multipart",
     "pydantic-ai",
-    "lancedb==0.17.0",
+    # 0.41 -> the version the course material uses
+    # also, the embedding registry API in this code does not exist in the old pin.
+    "lancedb>=0.41.0",
     "logfire[fastapi,variables]",
+    "pypdf>=6",
+    # Nvidia Build speaks the OpenAI API: used by the embedding function.
+    "openai>=2",
+    # Imported directly by embedders.py, so it is declared
+    # rather than relying on something lancedb happens to install.
+    "numpy>=2",
 ]
 
 [project.optional-dependencies]
@@ -23,6 +31,3 @@ dev = ["pytest", "httpx","ipykernel"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/cvoice_backend"]
-
-
-
