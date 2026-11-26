@@ -1,5 +1,7 @@
 """Agent that builds a structured Profile from the uploaded documents."""
 
+from datetime import date
+
 from pydantic_ai import Agent
 
 from cvoice_backend.data_models import Profile
@@ -12,6 +14,12 @@ profile_agent = Agent(
     instructions=PROFILE_PROMPT,
     output_type=Profile,
 )
+
+
+@profile_agent.instructions
+def add_todays_date() -> str:
+    """Tell the agent today's date, so it can count years up to 'Present'."""
+    return f"Today's date is {date.today()}."
 
 
 async def build_profile(text: str) -> Profile:
